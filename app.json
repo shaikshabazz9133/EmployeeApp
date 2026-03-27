@@ -1,0 +1,32 @@
+{
+  "expo": {
+    "name": "MNC Employee",
+    "slug": "mnc-employee-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.mnc.employeeapp"
+    },
+    "android": {
+      "package": "com.mnc.employeeapp",
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "CAMERA"
+      ]
+    },
+    "plugins": [
+      "expo-font",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to upload work completion images.",
+          "cameraPermission": "The app uses your camera to capture work completion photos."
+        }
+      ]
+    ]
+  }
+}
