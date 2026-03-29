@@ -9,6 +9,7 @@ import {
   RefreshControl,
   Alert,
   ActivityIndicator,
+  Image,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
@@ -32,6 +33,121 @@ const ISSUE_ICONS: Record<string, keyof typeof Ionicons.glyphMap> = {
   drainage: "water",
   street_light: "bulb",
 };
+
+// AP Government Banner
+const GovtBanner: React.FC = () => (
+  <LinearGradient
+    colors={["#1A3654", "#C58A00", "#F5C518"]}
+    start={{ x: 0, y: 0 }}
+    end={{ x: 1, y: 0 }}
+    style={govtStyles.banner}
+  >
+    <View style={govtStyles.row}>
+      <View style={govtStyles.tdpBadge}>
+        <Text style={govtStyles.tdpText}>TDP</Text>
+      </View>
+      <Text style={govtStyles.title}>Government of Andhra Pradesh</Text>
+    </View>
+    <View style={govtStyles.leadersRow}>
+      <View style={govtStyles.leaderCard}>
+        <Image
+          source={require("../../../assets/images/cm.png")}
+          style={govtStyles.leaderPhoto}
+          resizeMode="cover"
+        />
+        <View style={[govtStyles.rolePill, { backgroundColor: "#F5C518" }]}>
+          <Text style={[govtStyles.rolePillText, { color: "#1A3654" }]}>
+            CM
+          </Text>
+        </View>
+        <Text style={govtStyles.leaderName}>N. Chandrababu Naidu</Text>
+        <Text style={govtStyles.leaderTitle}>Chief Minister</Text>
+      </View>
+      <View style={govtStyles.divider} />
+      <View style={govtStyles.leaderCard}>
+        <Image
+          source={require("../../../assets/images/deputy_cm.png")}
+          style={govtStyles.leaderPhoto}
+          resizeMode="cover"
+        />
+        <View style={[govtStyles.rolePill, { backgroundColor: "#1A3654" }]}>
+          <Text style={govtStyles.rolePillText}>Dy.CM</Text>
+        </View>
+        <Text style={govtStyles.leaderName}>Pawan Kalyan</Text>
+        <Text style={govtStyles.leaderTitle}>Deputy Chief Minister</Text>
+      </View>
+    </View>
+  </LinearGradient>
+);
+
+const govtStyles = StyleSheet.create({
+  banner: {
+    borderRadius: 14,
+    padding: 12,
+    marginBottom: 10,
+    shadowColor: "rgba(197,138,0,0.3)",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    marginBottom: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "rgba(255,255,255,0.25)",
+    paddingBottom: 8,
+  },
+  tdpBadge: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 6,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+  },
+  tdpText: {
+    fontSize: 12,
+    fontWeight: "900",
+    color: "#1A3654",
+    letterSpacing: 1.5,
+  },
+  title: { fontSize: 12, fontWeight: "700", color: "#FFFFFF", flex: 1 },
+  leadersRow: { flexDirection: "row", justifyContent: "space-around" },
+  leaderCard: { alignItems: "center", flex: 1 },
+  leaderPhoto: {
+    width: 68,
+    height: 68,
+    borderRadius: 34,
+    borderWidth: 2.5,
+    borderColor: "#F5C518",
+    marginBottom: 5,
+  },
+  rolePill: {
+    borderRadius: 6,
+    paddingHorizontal: 7,
+    paddingVertical: 2,
+    marginBottom: 4,
+  },
+  rolePillText: { fontSize: 9, fontWeight: "900", color: "#FFFFFF" },
+  leaderName: {
+    fontSize: 11,
+    fontWeight: "700",
+    color: "#FFFFFF",
+    textAlign: "center",
+  },
+  leaderTitle: {
+    fontSize: 10,
+    color: "rgba(255,255,255,0.75)",
+    textAlign: "center",
+    marginTop: 1,
+  },
+  divider: {
+    width: 1,
+    backgroundColor: "rgba(255,255,255,0.25)",
+    marginHorizontal: 8,
+  },
+});
 
 const ISSUE_LABELS: Record<string, string> = {
   road_damage: "Road Damage",
@@ -337,6 +453,7 @@ const DashboardScreen: React.FC<DashboardScreenProps> = ({ navigation }) => {
         )}
         contentContainerStyle={styles.list}
         showsVerticalScrollIndicator={false}
+        ListHeaderComponent={<GovtBanner />}
         refreshControl={
           <RefreshControl
             refreshing={isLoading}
@@ -511,7 +628,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.secondary,
   },
   quickBtnComplete: {
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.primaryDark,
   },
   quickBtnText: {
     fontSize: FontSize.sm,

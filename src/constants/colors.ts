@@ -1,37 +1,38 @@
 export const Colors = {
-  primary: "#10B981",
-  primaryDark: "#059669",
-  primaryLight: "#ECFDF5",
-  secondary: "#2563EB",
-  secondaryLight: "#EFF6FF",
+  // TDP Party Colors — AP Government
+  primary: "#F5C518", // TDP Golden Yellow
+  primaryDark: "#C58A00", // Dark Gold
+  primaryLight: "#FFF8DC", // Corn Silk
+  secondary: "#1A3654", // TDP Navy Blue
+  secondaryLight: "#E8F0FE",
   error: "#EF4444",
   errorLight: "#FEF2F2",
-  warning: "#F59E0B",
-  warningLight: "#FFFBEB",
+  warning: "#D97706",
+  warningLight: "#FEF3C7",
   success: "#10B981",
   successLight: "#ECFDF5",
 
-  background: "#F0FDF4",
+  background: "#FFFDF5",
   surface: "#FFFFFF",
-  surfaceDark: "#1E293B",
+  surfaceDark: "#1A2535",
 
-  text: "#1E293B",
+  text: "#1A2535",
   textSecondary: "#64748B",
   textTertiary: "#94A3B8",
   textInverse: "#FFFFFF",
 
-  border: "#E2E8F0",
-  divider: "#F1F5F9",
+  border: "#F0E6B0",
+  divider: "#FFF3B0",
   cardBg: "#FFFFFF",
 
   status: {
-    pending: "#F59E0B",
-    in_progress: "#2563EB",
+    pending: "#D97706",
+    in_progress: "#1A56DB",
     completed: "#10B981",
     major: "#EF4444",
   },
   statusBg: {
-    pending: "#FFFBEB",
+    pending: "#FEF3C7",
     in_progress: "#EFF6FF",
     completed: "#ECFDF5",
     major: "#FEF2F2",
@@ -39,15 +40,15 @@ export const Colors = {
 
   priority: {
     low: "#10B981",
-    medium: "#F59E0B",
+    medium: "#D97706",
     high: "#EF4444",
   },
 
   gradient: {
-    primary: ["#10B981", "#059669"] as [string, string],
-    secondary: ["#2563EB", "#1D4ED8"] as [string, string],
-    hero: ["#10B981", "#0EA5E9"] as [string, string],
-    dark: ["#1E293B", "#0F172A"] as [string, string],
+    primary: ["#FFE566", "#F5C518"] as [string, string],
+    secondary: ["#F5C518", "#D97706"] as [string, string],
+    hero: ["#F5C518", "#C58A00"] as [string, string],
+    dark: ["#1A2535", "#0F1A28"] as [string, string],
   },
 
   overlay: "rgba(0,0,0,0.5)",
