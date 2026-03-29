@@ -11,6 +11,7 @@ import {
   StatusBar,
   ActivityIndicator,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons } from "@expo/vector-icons";
 import { useAuthStore } from "../../store/authStore";
@@ -30,6 +31,7 @@ const LoginScreen: React.FC<LoginScreenProps> = () => {
   };
 
   return (
+    <SafeAreaView style={styles.safeArea} edges={["top"]}>
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : undefined}
@@ -51,6 +53,7 @@ const LoginScreen: React.FC<LoginScreenProps> = () => {
       <ScrollView
         contentContainerStyle={styles.form}
         keyboardShouldPersistTaps="handled"
+        showsVerticalScrollIndicator={false}
       >
         <Text style={styles.title}>Welcome Back</Text>
         <Text style={styles.subtitle}>
@@ -169,12 +172,14 @@ const LoginScreen: React.FC<LoginScreenProps> = () => {
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: { flex: 1, backgroundColor: Colors.gradient.hero[0] as string },
   container: { flex: 1, backgroundColor: "#F0FDF4" },
-  hero: { paddingTop: 60, paddingBottom: 60, alignItems: "center" },
+  hero: { paddingTop: 32, paddingBottom: 60, alignItems: "center" },
   heroIcon: {
     width: 80,
     height: 80,
@@ -201,7 +206,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
   },
-  form: { padding: Spacing.lg, paddingTop: Spacing.xl },
+  form: { padding: Spacing.lg, paddingTop: Spacing.xl, maxWidth: 500, width: "100%", alignSelf: "center" },
   title: {
     fontSize: FontSize.xxl,
     fontWeight: "800",

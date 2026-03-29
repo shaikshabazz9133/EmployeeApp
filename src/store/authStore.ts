@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { Employee } from "../data/types";
 import { getEmployeeByCredentials } from "../data/mockUsers";
+import { navigationRef } from "../navigation/navigationRef";
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -32,6 +33,11 @@ export const useAuthStore = create<AuthState>((set) => ({
     return false;
   },
 
-  logout: () => set({ isAuthenticated: false, employee: null, error: null }),
+  logout: () => {
+    set({ isAuthenticated: false, employee: null, error: null });
+    if (navigationRef.isReady()) {
+      navigationRef.reset({ index: 0, routes: [{ name: "Auth" }] });
+    }
+  },
   clearError: () => set({ error: null }),
 }));
